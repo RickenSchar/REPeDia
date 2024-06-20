@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>REPeDia | Cadastro</title>
+
+  <script src="./js/sessao.js"></script>
+
+  <link rel="stylesheet" href="./css/cadastro.css" />
+  <link rel="icon" href="./assets/REimgs/REPDlogoGrande.png" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+</head>
+
+<body>
+  <!--header inicio-->
+  <div class="header">
+    <div class="container">
+      <img src="assets/REimgs/REPDlogo.png" alt="" width="125px" style="box-shadow: 0px 0px 25px 5px red;
+      border-radius: 5px;
+      margin-left: 5%;">
+      <ul class="navbar">
+        <li>|</li>
+        </li>
+        </li>
+        <li>
+          <a href="login.html"><span>L</span>ogin</a>
+        </li>
+        <li>|</li>
+        <li style="text-shadow: 0px 20px 20px white;">
+          <a href="cadastro.html" style="color: white;"><span style="color: red;">C</span>adastro</a>
+        </li>
+        <li>|</li>
+        <li class="agora">
+          <a href="index.html">
+            <img src="assets/REimgs/umbrellaLogo.png" alt="" width="50px">
+          </a>
+      </ul>
+    </div>
+  </div>
+  <!--header fim-->
+
+  <div class="login">
+    <div class="alerta_erro">
+      <div class="card_erro" id="cardErro">
+        <span id="mensagem_erro"></span>
+      </div>
+    </div>
+    <div class="container">
+      <div class="card card-cadastro">
+        <h2>B<span>em-</span>v<span>indo!</span></h2>
+        <div class="formulario">
+          <!--
+                         Para inserir mais um campo, copie uma das inputs abaixo.
+                         Assim que inserir vá para o script abaixo.
+                     -->
+          <div class="campo">
+            <span>J<span>ogo</span> F<span>avorito</span></span>
+            <select id="listaJogos">
+              <option selected>Selecione um jogo</option>
+              <option>Resident Evil 2 Remake</option>
+              <option>Resident Evil 3 Remake</option>
+              <option>Resident Evil 4 Remake</option>
+            </select>
+          </div>
+          <div class="campo">
+            <span>P<span>ersonagem</span> F<span>avorito</span></span>
+            <select id="listaPersonagens">
+              <option selected>Selecione um personagem</option>
+              <option>Leon</option>
+              <option>Claire</option>
+              <option>Jill</option>
+              <option>Ada</option>
+              <option>Luis</option>
+              <option>Ashley</option>
+              <option>Carlos</option>
+              <option>Sherry</option>
+
+            </select>
+          </div>
+          <div class="campo">
+            <span>N<span>ome:</span></span>
+            <input id="nome_input" type="text" placeholder="Seu nome" />
+          </div>
+          <div class="campo">
+            <span>E<span>-mail:</span></span>
+            <input id="email_input" type="text" placeholder="meuemail@provedor.com" />
+          </div>
+          <div class="campo">
+            <span>S<span>enha:</span></span>
+            <input id="senha_input" type="password" placeholder="******" />
+          </div>
+          <div class="campo">
+            <span>C<span>onfirmação</span> d<span>a</span> S<span>enha:</span></span>
+            <input id="confirmacao_senha_input" type="password" placeholder="******" />
+          </div>
+          <button class="botao" onclick="cadastrar()"><span>C</span>adastrar</button>
+        </div>
+        <div id="div_aguardar" class="loading-div">
+          <img src="./assets/REimgs/loading.gif" id="loading-gif" />
+        </div>
+
+        <div id="div_erros_login"></div>
+      </div>
+    </div>
+  </div>
+
+  <!--footer inicio-->
+  <div class="footer">
+    <div class="container">
+      <h4> <span style="color: red;">R</span>E<span style="color: red;">P</span>e<span style="color: red;">D</span>ia
+      </h4>
+      <span class="version">v1.0.0</span>
+    </div>
+  </div>
+  <!--footer fim-->
+</body>
+
+</html>
+
+<script>
+  function cadastrar() {
+    aguardar();
+
+    //Recupere o valor da nova input pelo nome do id
+    // Agora vá para o método fetch logo abaixo
+    var nomeVar = nome_input.value;
+    var emailVar = email_input.value;
+    var senhaVar = senha_input.value;
+    var confirmacaoSenhaVar = confirmacao_senha_input.value;
+    var jogoVar = listaJogos.value;
+    var personagemVar = listaPersonagens.value;
+    var tamanho_frase = nomeVar.length
+    var indice_arroba = emailVar.indexOf('@')
+    var indice_ponto = emailVar.indexOf('.')
+    var tamanho_senha = senhaVar.length
+    
+    if (
+      nomeVar == "" ||
+      emailVar == "" ||
+      senhaVar == "" ||
+      confirmacaoSenhaVar == "" ||
+      jogoVar == "Selecione um jogo" ||
+      personagemVar == "Selecione um personagem"
+    ) {
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML =
+        "Preencha todos os campos corretamente";
+
+      finalizarAguardar();
+      return false;
+    } else if (tamanho_frase <= 1) {
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML = "O usuário está preenchido incorretamente"
+
+      finalizarAguardar();
+      return false;
+    }
+    else if (indice_arroba < 0 || indice_ponto < 0) {
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML = "O Email está preenchido incorretamente"
+
+
+      finalizarAguardar();
+      return false;
+    }
+    else if (tamanho_senha < 6) {
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML = "A senha deve ter pelo menos 6 caracteres"
+
+      finalizarAguardar();
+      return false;
+    }
+    else if (senhaVar != confirmacaoSenhaVar) {
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML = "As senhas não são iguais"
+
+      finalizarAguardar();
+      return false;
+    } else {
+      setInterval(sumirMensagem, 5000);
+    }
+
+    // Enviando o valor da nova input
+    fetch("/usuarios/cadastrar", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        // crie um atributo que recebe o valor recuperado aqui
+        // Agora vá para o arquivo routes/usuario.js
+        jogoServer: jogoVar,
+        personagemServer: personagemVar,
+        nomeServer: nomeVar,
+        emailServer: emailVar,
+        senhaServer: senhaVar
+      }),
+    })
+      .then(function (resposta) {
+        console.log("resposta: ", resposta);
+
+        if (resposta.ok) {
+          cardErro.style.display = "block";
+
+          mensagem_erro.innerHTML =
+            "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+
+          setTimeout(() => {
+            window.location = "login.html";
+          }, "2000");
+
+          limparFormulario();
+          finalizarAguardar();
+        } else {
+          throw "Houve um erro ao tentar realizar o cadastro!";
+        }
+      })
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+        finalizarAguardar();
+      });
+
+    return false;
+  }
+
+  function listar() {
+    fetch("/empresas/listar", {
+      method: "GET",
+    })
+      .then(function (resposta) {
+        resposta.json().then((empresas) => {
+          empresas.forEach((empresa) => {
+            listaEmpresas.innerHTML += `<option value='${empresa.id}'>${empresa.cnpj}</option>`;
+          });
+        });
+      })
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+      });
+  }
+
+  function sumirMensagem() {
+    cardErro.style.display = "none";
+  }
+</script>

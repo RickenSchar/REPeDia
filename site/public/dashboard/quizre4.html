@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../assets/REimgs/REPDlogoGrande.png" type="image/x-icon">
+    <title>REPeDia | Quiz RE4</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url(../assets/REimgs/texturaPretoVermelho.png);
+            color: red;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: black;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .questao {
+            margin-bottom: 20px;
+        }
+
+        .questao h3 {
+            margin-bottom: 10px;
+        }
+
+        .botao {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: black;
+            border: none;
+            color: red;
+            font-size: 16px;
+            cursor: pointer;
+            border: 2px red solid;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px 10px red;
+            transition: 0.7s;
+        }
+
+        .botao:hover {
+            box-shadow: 0px 0px 10px 10px white;
+            border: 2px white solid;
+            transition: 0.7s;
+        }
+
+        .botao:not(:hover) {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: black;
+            border: none;
+            color: red;
+            font-size: 16px;
+            cursor: pointer;
+            border: 2px red solid;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px 10px red;
+            transition: 0.7s;
+        }
+
+        .resultado {
+            display: none;
+            margin-top: 20px;
+            padding: 10px;
+            background-color: black;
+            border-radius: 5px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="Puzzles.html"><img src="../assets/REimgs/umbrellaLogo.png" alt="" style="width: 150px; margin-bottom: -200px; margin-left: 120px;"></a>
+    <div class="container">
+        <h1>Quiz Resident Evil 4 Remake</h1>
+        <form id="quizForm">
+            <div class="questao">
+                <h3>1. Qual é o nome do protagonista de Resident Evil 4?</h3>
+                <input type="radio" name="q1" value="a"> A) Chris Redfield<br>
+                <input type="radio" name="q1" value="b"> B) Leon S. Kennedy<br>
+                <input type="radio" name="q1" value="c"> C) Albert Wesker<br>
+            </div>
+            <div class="questao">
+                <h3>2. Quem Leon está tentando resgatar em Resident Evil 4?</h3>
+                <input type="radio" name="q2" value="a"> A) Ada Wong<br>
+                <input type="radio" name="q2" value="b"> B) Claire Redfield<br>
+                <input type="radio" name="q2" value="c"> C) Ashley Graham<br>
+            </div>
+            <div class="questao">
+                <h3>3. Onde se passa a maior parte da história de Resident Evil 4?</h3>
+                <input type="radio" name="q3" value="a"> A) Espanha<br>
+                <input type="radio" name="q3" value="b"> B) Estados Unidos<br>
+                <input type="radio" name="q3" value="c"> C) Japão<br>
+            </div>
+            <div class="questao">
+                <h3>4. Qual é o nome do líder dos cultistas em Resident Evil 4?</h3>
+                <input type="radio" name="q4" value="a"> A) Albert Wesker<br>
+                <input type="radio" name="q4" value="b"> B) Jack Krauser<br>
+                <input type="radio" name="q4" value="c"> C) Osmund Saddler<br>
+            </div>
+            <div class="questao">
+                <h3>5. Qual é o nome do comerciante que aparece ao longo do jogo?</h3>
+                <input type="radio" name="q5" value="a"> A) The Duke<br>
+                <input type="radio" name="q5" value="b"> B) The Merchant<br>
+                <input type="radio" name="q5" value="c"> C) The Vendor<br>
+            </div>
+            <button type="button" class="botao" onclick="checarrespostas()">Enviar</button>
+        </form>
+        <div id="resultado" class="resultado"></div>
+    </div>
+
+    <script>
+        function checarrespostas() {
+            var respostas = {
+                q1: 'b',
+                q2: 'c',
+                q3: 'a',
+                q4: 'c',
+                q5: 'b'
+            };
+
+            var pontuacao = 0;
+            var form = document.getElementById('quizForm');
+            var resultadoDiv = resultado;
+
+            for (var questao in respostas) {
+                var respostaUsuario = form.elements[questao].value;
+                if (respostaUsuario === respostas[questao]) {
+                    pontuacao++;
+                }
+            }
+
+            resultadoDiv.innerHTML = `Você acertou ${pontuacao} de 5 perguntas.`;
+            resultadoDiv.style.display = 'block';
+        }
+    </script>
+</body>
+
+</html>

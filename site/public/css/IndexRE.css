@@ -1,0 +1,281 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body::-webkit-scrollbar {
+  width: 12px;               /* width of the entire scrollbar */
+}
+
+body::-webkit-scrollbar-track {
+  background: black;        /* color of the tracking area */
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: red;    /* color of the scroll thumb */
+  border-radius: 70px;       /* roundness of the scroll thumb */
+    /* creates padding around scroll thumb */
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Barlow', 'Segoe UI', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: black;
+}
+
+.container {
+  display: flex;
+  width: 80%;
+  margin: auto;
+}
+
+.header {
+  height: 150px;
+  border-bottom: 2px solid red;
+  background-image: url('../assets/REimgs/texturaPretoVermelho.png');
+  background-size: cover;
+}
+
+.header .container {
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+
+.header a {
+  text-decoration: none;
+  color: red;
+}
+
+.header a:hover {
+  text-decoration: none;
+  color: white;
+  text-shadow: 0px 20px 20px red; 
+  transition: 0.7s;
+}
+
+.header a:not(:hover) {
+  transition: 0.7s;
+}
+
+.header a:hover span {
+  color: red;
+  transition: 0.7s;
+}
+
+.header a:not(:hover) span {
+  color: red;
+  transition: 0.7s;
+}
+
+.agora {
+  font-weight: 800;
+}
+
+.navbar {
+  width: 800px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  list-style: none;
+  color: red;
+}
+
+.header h1 {
+  margin: 0;
+}
+
+.banner {
+  height: 800px;
+  background-image: url('../assets/REimgs/REBackGround.jpg');
+  background-size: cover;
+}
+
+.banner .container {
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.banner .container p {
+  width: 60%;
+  margin: 0;
+  padding: 0;
+  font-size: 50px;
+  color: red;
+  font-weight: 900;
+  text-shadow: 0px 0px 5px black;
+}
+
+/* Re2 */
+
+.rebanner2 {
+  color: white;
+  height: 100vh;
+  background-image: url(../assets/REimgs/RE2RPDBack.jpg);
+  background-size: cover;
+}
+
+.rebanner2 .recontainer2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 90%;
+  margin: auto;
+}
+
+.rebanner2 .recontainer2 h1 {
+  display: flex;
+  margin-bottom: 40%;
+  
+}
+
+.rebanner2 .recontainer2 h1 span {
+  color: red;
+}
+
+.conteudo {
+  position: absolute;
+  display: flex;
+  height: 100%;
+  width: 80%;
+  margin-left: 11%;
+}
+
+.conteudo .caixas {
+  display: flex;
+  width: 40%;
+  height: 70%;
+  margin-bottom: 10%;
+  margin-top: 10%;
+}
+
+.conteudo a {
+  display: flex;
+  width: 60%;
+  margin-bottom: 10%;
+  margin-top: 20%;
+}
+
+.conteudo a :hover {
+  display: flex;
+  width: 150%;
+  height: 100%;
+  margin-bottom: 10%;
+  margin-top: -10%;
+  transition: 0.7s;
+  box-shadow: 0px 0px 5px 5px red;
+}
+
+.conteudo :not(:hover){
+  transition: 0.7s;
+}
+
+.conteudo a img {
+  border-radius: 15px;
+  box-shadow: 0px 0px 5px 5px black;
+}
+
+
+/* Re3 */
+
+.rebanner3 {
+  color: white;
+  height: 100vh;
+  background-image: url(../assets/REimgs/RE3clockTower.png);
+  background-size: cover;
+}
+
+.rebanner3 .recontainer3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 90%;
+  margin: auto;
+}
+
+.rebanner3 .recontainer3 h1 {
+  display: flex;
+  margin-bottom: 40%;
+}
+
+.rebanner3 .recontainer3 h1 span {
+  color: red;
+}
+
+/* Re4 */
+
+.rebanner4 {
+  color: white;
+  height: 100vh;
+  background-image: url(../assets/REimgs/RE4BackgroundF.jpg);
+  background-size: cover;
+}
+
+.rebanner4 .recontainer4 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 90%;
+  margin: auto;
+}
+
+.rebanner4 .recontainer4 h1 {
+  display: flex;
+  margin-bottom: 40%;
+  
+}
+
+.rebanner4 .recontainer4 h1 span {
+  color: red;
+}
+
+/* sobre REPeDia */
+
+.rebannersobre {
+  color: white;
+  height: 700px;
+  background-image: url(../assets/REimgs/umbrellaBackSobre.jpg);
+  background-size: cover;
+}
+
+.rebannersobre .recontainersobre {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 90%;
+  margin: auto;
+}
+
+.rebannersobre .recontainersobre h1 {
+  display: flex;
+  margin-bottom: 40%;
+  
+}
+
+.rebannersobre .recontainersobre h1 span {
+  color: red;
+}
+
+/* FOOTER */
+
+.footer {
+  background-image: url(../assets/REimgs/texturaPretoVermelho.png);
+  height: 150px;
+  color: #fff;
+  display: flex;
+  font-size: 15px;
+}
+
+.footer .container {
+  justify-content: center;
+  text-align: center;
+}
+
+.footer .container .version {
+  font-size: 12px;
+}
