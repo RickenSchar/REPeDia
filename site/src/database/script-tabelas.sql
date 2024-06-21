@@ -6,23 +6,21 @@
 comandos para mysql server
 */
 
-CREATE DATABASE aquatech;
+CREATE DATABASE REPeDia;
 
-USE aquatech;
+USE REPeDia;
 
-CREATE TABLE empresa (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	razao_social VARCHAR(50),
-	cnpj CHAR(14)
-);
 
 CREATE TABLE usuario (
 	id INT PRIMARY KEY AUTO_INCREMENT,
 	nome VARCHAR(50),
 	email VARCHAR(50),
 	senha VARCHAR(50),
-	fk_empresa INT,
-	FOREIGN KEY (fk_empresa) REFERENCES empresa(id)
+	personagemFavorito varchar(50),
+	jogoFavorito varchar(50),
+	fkQuiz varchar(50),
+	fkSecrets varchar(50),
+	fkJogo varchar(50),
 );
 
 CREATE TABLE aviso (
@@ -33,27 +31,17 @@ CREATE TABLE aviso (
 	FOREIGN KEY (fk_usuario) REFERENCES usuario(id)
 );
 
-create table aquario (
-/* em nossa regra de negócio, um aquario tem apenas um sensor */
+CREATE TABLE quiz (
 	id INT PRIMARY KEY AUTO_INCREMENT,
-	descricao VARCHAR(300),
-	fk_empresa INT,
-	FOREIGN KEY (fk_empresa) REFERENCES empresa(id)
-);
+	qtdPontos varchar(50)
+)
 
-/* esta tabela deve estar de acordo com o que está em INSERT de sua API do arduino - dat-acqu-ino */
-
-create table medida (
+CREATE TABLE secrets {
 	id INT PRIMARY KEY AUTO_INCREMENT,
-	dht11_umidade DECIMAL,
-	dht11_temperatura DECIMAL,
-	luminosidade DECIMAL,
-	lm35_temperatura DECIMAL,
-	chave TINYINT,
-	momento DATETIME,
-	fk_aquario INT,
-	FOREIGN KEY (fk_aquario) REFERENCES aquario(id)
-);
+	encontrados varchar(50)
+}
 
-insert into empresa (razao_social, cnpj) values ('Empresa 1', '00000000000000');
-insert into aquario (descricao, fk_empresa) values ('Aquário de Estrela-do-mar', 1);
+CREATE TABLE jogo {
+	id INT PRIMARY KEY AUTO_INCREMENT,
+	qtdPontos varchar(50)
+}
