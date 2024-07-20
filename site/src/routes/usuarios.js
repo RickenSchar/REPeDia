@@ -20,4 +20,8 @@ router.post("/exibicaoPersonagem", function (req, res) {
     usuarioController.exibicaoPersonagem(req, res);
 });
 
+router.post("/quizRE2", function (req, res) {
+    usuarioController.quizRE2(req, res)
+})
+
 module.exports = router;
