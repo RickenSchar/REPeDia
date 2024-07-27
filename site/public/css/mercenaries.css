@@ -408,3 +408,49 @@ h1 span {
 .paragrafo p {
     font-size: 20px;
 }
+
+.tut_jogo {
+    margin-top: 100px;
+    margin-left: 1550px;
+    width: 1050px;
+    height: 600px;
+    color: white;
+    position: absolute;
+}
+
+.titulo_tut {
+    font-size: 70px;
+    margin-left: 25%;
+    font-weight: 600;
+}
+
+.titulo_tut span {
+    color: red;
+    text-shadow: 0px 0px 5px red;
+}
+
+.caixa_tut {
+    margin-top: 50px;
+    font-size: 30px;
+}
+
+.jogar {
+    color: red;
+    margin-top: 50px;
+    font-size: 70px;
+    margin-left: 40%;
+    font-weight: 600;
+    text-shadow: 0px 3px 3px red;
+}
+
+.jogar span:hover {
+    text-shadow: 0px 10px 10px red;
+    color: white;
+    transition: 0.7s;
+}
+
+.jogar span:not(:hover) {
+    text-shadow: 0px 3px 3px red;
+    color: red;
+    transition: 0.7s;
+}
