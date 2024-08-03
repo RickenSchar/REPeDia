@@ -37,6 +37,11 @@ function exibicaoPersonagem(){
     return database.executar(instrucaoSql);
 }
 
+// inserir os dados na tabela do quiz correspondente
+function quizre2(){
+    var instrucaoSql = `insert into quizre2 values`
+}
+
 /*
 [
     {jogoFavorito: 're2'},

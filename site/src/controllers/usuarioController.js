@@ -188,9 +188,16 @@ function exibicaoPersonagem(req, res) {
         )
 }
 
+// nova função para requisitar os dados do quiz
+function quizre2(req, res) {
+    // chamando a pontuação do quiz
+    var pontuacao = req.body.pontuacaoQuiz2
+}
+
 module.exports = {
     autenticar,
     cadastrar,
     exibicaoJogo,
-    exibicaoPersonagem
+    exibicaoPersonagem,
+    quizre2
 }

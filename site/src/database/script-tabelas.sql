@@ -18,9 +18,9 @@ CREATE TABLE usuario (
 	senha VARCHAR(50),
 	personagemFavorito varchar(50),
 	jogoFavorito varchar(50),
-	fkQuiz varchar(50),
+	fkQuiz int AUTO_INCREMENT,
 	fkSecrets varchar(50),
-	fkJogo varchar(50),
+	fkJogo varchar(50)
 );
 
 CREATE TABLE aviso (
@@ -31,17 +31,27 @@ CREATE TABLE aviso (
 	FOREIGN KEY (fk_usuario) REFERENCES usuario(id)
 );
 
-CREATE TABLE quiz (
+CREATE TABLE quizre2 (
 	id INT PRIMARY KEY AUTO_INCREMENT,
 	qtdPontos varchar(50)
-)
+);
 
-CREATE TABLE secrets {
+CREATE TABLE quizre3 (
+	id INT PRIMARY KEY AUTO_INCREMENT,
+	qtdPontos varchar(50)
+);
+
+CREATE TABLE quizre4 (
+	id INT PRIMARY KEY AUTO_INCREMENT,
+	qtdPontos varchar(50)
+);
+
+CREATE TABLE secrets (
 	id INT PRIMARY KEY AUTO_INCREMENT,
 	encontrados varchar(50)
-}
+);
 
-CREATE TABLE jogo {
+CREATE TABLE jogo (
 	id INT PRIMARY KEY AUTO_INCREMENT,
 	qtdPontos varchar(50)
-}
+);

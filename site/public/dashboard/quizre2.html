@@ -146,8 +146,9 @@
             resultadoDiv.innerHTML = `Você acertou ${pontuacao} de 5 perguntas.`;
             resultadoDiv.style.display = 'block';
 
+            // Caso a pontuação seja maior ou igual a 1, envia o novo valor
             if (pontuacao >= 1) {
-                fetch("/usuarios/quizRE2", {
+                fetch("/usuarios/quizre2", {
                     method: "POST",
                     headers: {
                         "content-type": "aplication/json",
